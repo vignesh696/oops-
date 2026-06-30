@@ -1,3 +1,4 @@
+import StocksWidget from './StocksWidget';
 import RedditWidget from './RedditWidget';
 import React from 'react';
 import './App.css';
@@ -17,6 +18,8 @@ function App() {
         <p>Live data from 25 sources</p>
       </header>
       <div className="dashboard-grid">
+        <StocksWidget />
+         <RedditWidget /> 
         <CryptoWidget />
         <FXWidget />
         <HackerNewsWidget />
