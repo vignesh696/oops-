@@ -5,7 +5,7 @@ function StocksWidget() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/stocks')
+   fetch('https://operations-dashboard-backend.onrender.com/api/stocks')
       .then(res => res.json())
       .then(data => {
         console.log('Stocks data:', data);

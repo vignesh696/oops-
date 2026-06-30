@@ -9,7 +9,7 @@ function Login({ onLogin }) {
   const handleLogin = () => {
     setLoading(true);
     setError('');
-    fetch('http://localhost:5000/api/login', {
+    fetch('https://operations-dashboard-backend.onrender.com/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

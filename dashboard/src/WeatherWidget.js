@@ -5,7 +5,7 @@ function WeatherWidget() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/weather')
+    fetch('https://operations-dashboard-backend.onrender.com/api/weather')
       .then(res => res.json())
       .then(data => {
         console.log('Weather:', data);
