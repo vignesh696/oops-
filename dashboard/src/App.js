@@ -1,4 +1,4 @@
-import WorldBankWidget from './WorldBankWidget';
+import RedditWidget from './RedditWidget';
 import React from 'react';
 import './App.css';
 import CryptoWidget from './CryptoWidget';
@@ -6,6 +6,8 @@ import FXWidget from './FXWidget';
 import HackerNewsWidget from './HackerNewsWidget';
 import AirQualityWidget from './AirQualityWidget';
 import WHOWidget from './WHOWidget';
+import WorldBankWidget from './WorldBankWidget';
+import HRWidget from './HRWidget';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <AirQualityWidget />
         <WHOWidget />
         <WorldBankWidget />
+        <HRWidget />
+        <RedditWidget />
       </div>
     </div>
   );
