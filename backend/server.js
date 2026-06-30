@@ -66,6 +66,27 @@ app.get('/api/reddit', async (req, res) => {
     res.status(500).json({ error: 'Failed' });
   }
 });
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+const users = [
+  { id: 1, email: 'founder@dashboard.com', password: 'founder123', role: 'founder' },
+  { id: 2, email: 'analyst@dashboard.com', password: 'analyst123', role: 'analyst' }
+];
+
+app.post('/api/login', (req, res) => {
+  const { email, password } = req.body;
+  const user = users.find(u => u.email === email);
+  if (!user || user.password !== password) {
+    return res.status(401).json({ error: 'Invalid email or password' });
+  }
+  const token = jwt.sign(
+    { id: user.id, email: user.email, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: '24h' }
+  );
+  res.json({ token, role: user.role, email: user.email });
+});
 app.listen(PORT, () => {
   console.log('Server running on http://localhost:' + PORT);
 });
