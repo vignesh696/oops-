@@ -1,5 +1,3 @@
-import StocksWidget from './StocksWidget';
-import RedditWidget from './RedditWidget';
 import React from 'react';
 import './App.css';
 import CryptoWidget from './CryptoWidget';
@@ -9,6 +7,10 @@ import AirQualityWidget from './AirQualityWidget';
 import WHOWidget from './WHOWidget';
 import WorldBankWidget from './WorldBankWidget';
 import HRWidget from './HRWidget';
+import RedditWidget from './RedditWidget';
+import StocksWidget from './StocksWidget';
+import WeatherWidget from './WeatherWidget';
+import EconomicsWidget from './EconomicsWidget';
 
 function App() {
   return (
@@ -18,8 +20,6 @@ function App() {
         <p>Live data from 25 sources</p>
       </header>
       <div className="dashboard-grid">
-        <StocksWidget />
-         <RedditWidget /> 
         <CryptoWidget />
         <FXWidget />
         <HackerNewsWidget />
@@ -28,6 +28,9 @@ function App() {
         <WorldBankWidget />
         <HRWidget />
         <RedditWidget />
+        <StocksWidget />
+        <WeatherWidget />
+        <EconomicsWidget />
       </div>
     </div>
   );
