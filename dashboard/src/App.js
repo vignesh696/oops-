@@ -1,3 +1,4 @@
+import WorldBankWidget from './WorldBankWidget';
 import React from 'react';
 import './App.css';
 import CryptoWidget from './CryptoWidget';
@@ -19,10 +20,7 @@ function App() {
         <HackerNewsWidget />
         <AirQualityWidget />
         <WHOWidget />
-        <div className="widget">
-          <h2>🌍 World Bank</h2>
-          <p>Coming soon...</p>
-        </div>
+        <WorldBankWidget />
       </div>
     </div>
   );
