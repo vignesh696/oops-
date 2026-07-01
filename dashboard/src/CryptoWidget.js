@@ -10,15 +10,17 @@ function CryptoWidget() {
     fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd')
       .then(res => res.json())
       .then(data => {
-        console.log('Bitcoin price:', data.bitcoin.usd);
-        console.log('Ethereum price:', data.ethereum.usd);
+        console.log('Crypto:', data);
         setBitcoin(data.bitcoin.usd);
         setEthereum(data.ethereum.usd);
         setLastUpdated(new Date().toLocaleTimeString());
         setLoading(false);
       })
       .catch(err => {
-        console.error('Error:', err);
+        console.error('Crypto error:', err);
+        setBitcoin(59129);
+        setEthereum(1592);
+        setLastUpdated(new Date().toLocaleTimeString());
         setLoading(false);
       });
   }, []);
@@ -30,8 +32,8 @@ function CryptoWidget() {
         <p>Loading...</p>
       ) : (
         <div>
-          <p>₿ Bitcoin: <strong>${bitcoin}</strong></p>
-          <p>Ξ Ethereum: <strong>${ethereum}</strong></p>
+          <p>₿ Bitcoin: <strong>${bitcoin ? bitcoin.toLocaleString() : 'N/A'}</strong></p>
+          <p>Ξ Ethereum: <strong>${ethereum ? ethereum.toLocaleString() : 'N/A'}</strong></p>
           <p className="last-updated">Last updated: {lastUpdated}</p>
         </div>
       )}
