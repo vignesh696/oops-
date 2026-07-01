@@ -5,11 +5,9 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001']
-}));
+app.use(cors());
 app.use(express.json());
 
 const users = [
@@ -33,7 +31,7 @@ app.post('/api/login', (req, res) => {
   }
   const token = jwt.sign(
     { id: user.id, email: user.email, role: user.role },
-    process.env.JWT_SECRET,
+    process.env.JWT_SECRET || 'mysecretkey123',
     { expiresIn: '24h' }
   );
   res.json({ token, role: user.role, email: user.email });
@@ -82,3 +80,15 @@ app.get('/api/economics', async (req, res) => {
 app.get('/api/reddit', async (req, res) => {
   try {
     const response = await axios.get(
+      'https://www.reddit.com/r/Entrepreneur/top.json?limit=5&t=day',
+      { headers: { 'User-Agent': 'OperationsDashboard/1.0' } }
+    );
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed' });
+  }
+});
+
+app.listen(PORT, () => {
+  console.log('Server running on port ' + PORT);
+});
