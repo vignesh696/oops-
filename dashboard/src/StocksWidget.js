@@ -5,7 +5,7 @@ function StocksWidget() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   fetch('https://operations-dashboard-backend.onrender.com/api/stocks')
+   fetch('https://ops-dashboard-backend-vignesh.onrender.com/api/stocks')
       .then(res => res.json())
       .then(data => {
         console.log('Stocks data:', data);

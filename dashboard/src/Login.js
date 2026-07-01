@@ -9,7 +9,7 @@ function Login({ onLogin }) {
   const handleLogin = () => {
     setLoading(true);
     setError('');
-    fetch('https://operations-dashboard-backend.onrender.com/api/login', {
+    fetch('https://ops-dashboard-backend-vignesh.onrender.com/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

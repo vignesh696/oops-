@@ -5,7 +5,7 @@ function EconomicsWidget() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   fetch('https://operations-dashboard-backend.onrender.com/api/economics')
+   fetch('https://ops-dashboard-backend-vignesh.onrender.com/api/economics')
       .then(res => res.json())
       .then(json => {
         console.log('Economics:', json);
